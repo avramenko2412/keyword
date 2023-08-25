@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.9.10 on win32)" generated="20230609 16:22:32.505" rpa="false" schemaversion="3">
+<suite id="s1" name="File" source="E:\record2\record2-main\src\test\java\robotframework\acceptance\file.robot">
+<test id="s1-t1" name="Disabled Registration" line="5">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230609 16:22:32.713" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000022772B029D0&gt;</msg>
+<status status="PASS" starttime="20230609 16:22:32.712" endtime="20230609 16:22:32.713"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230609 16:22:32.713" endtime="20230609 16:22:32.713"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230609 16:22:32.714" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230609 16:22:32.714" endtime="20230609 16:22:35.242"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://127.0.0.1:7000/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230609 16:22:35.243" level="INFO">Opening url 'http://127.0.0.1:7000/'</msg>
+<status status="PASS" starttime="20230609 16:22:35.243" endtime="20230609 16:22:35.663"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>974</arg>
+<arg>1040</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230609 16:22:35.663" endtime="20230609 16:22:35.777"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.hero__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:35.778" level="INFO">Clicking element 'css=.hero__button'.</msg>
+<status status="PASS" starttime="20230609 16:22:35.777" endtime="20230609 16:22:35.833"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=sign-up__first-name</arg>
+<arg>Andrii</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:35.834" level="INFO">Typing text 'Nikita' into text field 'id=sign-up__first-name'.</msg>
+<status status="PASS" starttime="20230609 16:22:35.833" endtime="20230609 16:22:35.908"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=sign-up__last-name</arg>
+<arg>Psarov</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:35.909" level="INFO">Typing text 'Avram' into text field 'id=sign-up__last-name'.</msg>
+<status status="PASS" starttime="20230609 16:22:35.909" endtime="20230609 16:22:35.966"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=sign-up__password</arg>
+<arg>gdfhderfh</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:35.967" level="INFO">Typing text 'gdfhderfh' into text field 'id=sign-up__password'.</msg>
+<status status="PASS" starttime="20230609 16:22:35.967" endtime="20230609 16:22:36.029"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.form__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:36.030" level="INFO">Clicking element 'css=.form__button'.</msg>
+<status status="PASS" starttime="20230609 16:22:36.030" endtime="20230609 16:22:36.068"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${feedback}</var>
+<arg>css=.form__row:nth-child(4) &gt; .form__feedback</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:36.090" level="INFO">${feedback} = Enter a valid email</msg>
+<status status="PASS" starttime="20230609 16:22:36.068" endtime="20230609 16:22:36.090"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${feedback}</arg>
+<arg>Enter a valid email</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230609 16:22:36.090" endtime="20230609 16:22:36.090"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230609 16:22:36.091" endtime="20230609 16:22:42.210"/>
+</kw>
+<status status="PASS" starttime="20230609 16:22:32.712" endtime="20230609 16:22:42.211"/>
+</test>
+<test id="s1-t2" name="Login" line="20">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230609 16:22:42.212" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000022772C1B610&gt;</msg>
+<status status="PASS" starttime="20230609 16:22:42.212" endtime="20230609 16:22:42.212"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230609 16:22:42.213" endtime="20230609 16:22:42.213"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230609 16:22:42.213" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230609 16:22:42.213" endtime="20230609 16:22:44.530"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://127.0.0.1:7000/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230609 16:22:44.530" level="INFO">Opening url 'http://127.0.0.1:7000/'</msg>
+<status status="PASS" starttime="20230609 16:22:44.530" endtime="20230609 16:22:44.921"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>974</arg>
+<arg>1040</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230609 16:22:44.921" endtime="20230609 16:22:45.039"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>link=Sign in</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:45.040" endtime="20230609 16:22:45.070"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>link=Sign in</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:45.071" level="INFO">Clicking element 'link=Sign in'.</msg>
+<status status="PASS" starttime="20230609 16:22:45.070" endtime="20230609 16:22:45.132"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id=sign-in__email</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:45.132" endtime="20230609 16:22:45.158"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=sign-in__email</arg>
+<arg>ano4824avr@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:45.159" level="INFO">Typing text 'ano4824avr@gmail@gmail.com' into text field 'id=sign-in__email'.</msg>
+<status status="PASS" starttime="20230609 16:22:45.158" endtime="20230609 16:22:45.236"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id=sign-in__password</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:45.237" endtime="20230609 16:22:45.252"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=sign-in__password</arg>
+<arg>password1234</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:45.253" level="INFO">Typing password into text field 'id=sign-in__password'.</msg>
+<msg timestamp="20230609 16:22:45.277" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230609 16:22:45.309" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230609 16:22:45.252" endtime="20230609 16:22:45.309"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=.form__button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:45.310" endtime="20230609 16:22:45.326"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.form__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:45.327" level="INFO">Clicking element 'css=.form__button'.</msg>
+<status status="PASS" starttime="20230609 16:22:45.326" endtime="20230609 16:22:45.448"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Home | Universe</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230609 16:22:45.448" endtime="20230609 16:22:45.496"/>
+</kw>
+<status status="PASS" starttime="20230609 16:22:42.212" endtime="20230609 16:22:45.496"/>
+</test>
+<test id="s1-t3" name="Successful Add Blog Post" line="40">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230609 16:22:45.498" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000022772B36820&gt;</msg>
+<status status="PASS" starttime="20230609 16:22:45.498" endtime="20230609 16:22:45.498"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230609 16:22:45.499" endtime="20230609 16:22:45.499"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230609 16:22:45.499" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230609 16:22:45.499" endtime="20230609 16:22:47.985"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://127.0.0.1:7000/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230609 16:22:47.986" level="INFO">Opening url 'http://127.0.0.1:7000/'</msg>
+<status status="PASS" starttime="20230609 16:22:47.985" endtime="20230609 16:22:48.409"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>974</arg>
+<arg>1040</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230609 16:22:48.409" endtime="20230609 16:22:48.525"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>link=Sign in</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:48.525" endtime="20230609 16:22:48.558"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>link=Sign in</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:48.559" level="INFO">Clicking element 'link=Sign in'.</msg>
+<status status="PASS" starttime="20230609 16:22:48.558" endtime="20230609 16:22:48.618"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id=sign-in__email</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:48.619" endtime="20230609 16:22:48.642"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=sign-in__email</arg>
+<arg>ano4824avr@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:48.643" level="INFO">Typing text 'ano4824avr@gmail.com' into text field 'id=sign-in__email'.</msg>
+<status status="PASS" starttime="20230609 16:22:48.642" endtime="20230609 16:22:48.733"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id=sign-in__password</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:48.733" endtime="20230609 16:22:48.751"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=sign-in__password</arg>
+<arg>Fylhtq2001!</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:48.752" level="INFO">Typing password into text field 'id=sign-in__password'.</msg>
+<msg timestamp="20230609 16:22:48.780" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230609 16:22:48.820" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230609 16:22:48.751" endtime="20230609 16:22:48.820"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=.form__button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:48.820" endtime="20230609 16:22:48.838"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.form__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:48.839" level="INFO">Clicking element 'css=.form__button'.</msg>
+<status status="PASS" starttime="20230609 16:22:48.838" endtime="20230609 16:22:48.955"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>link=Read more</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:48.955" endtime="20230609 16:22:48.977"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>link=Read more</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:48.978" level="INFO">Clicking element 'link=Read more'.</msg>
+<status status="PASS" starttime="20230609 16:22:48.978" endtime="20230609 16:22:49.030"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=.comment-form__textarea</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:49.031" endtime="20230609 16:22:49.048"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css=.comment-form__textarea</arg>
+<arg>new comment</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:49.049" level="INFO">Typing text 'new comment' into text field 'css=.comment-form__textarea'.</msg>
+<status status="PASS" starttime="20230609 16:22:49.048" endtime="20230609 16:22:49.101"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=.comment-form__button:nth-child(1)</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:22:49.102" endtime="20230609 16:22:49.117"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.comment-form__button:nth-child(1)</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:49.118" level="INFO">Clicking element 'css=.comment-form__button:nth-child(1)'.</msg>
+<status status="PASS" starttime="20230609 16:22:49.118" endtime="20230609 16:22:49.294"/>
+</kw>
+<status status="PASS" starttime="20230609 16:22:45.497" endtime="20230609 16:22:49.295"/>
+</test>
+<test id="s1-t4" name="Successful Add Comment" line="67">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230609 16:22:49.297" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000022772C3E880&gt;</msg>
+<status status="PASS" starttime="20230609 16:22:49.297" endtime="20230609 16:22:49.297"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230609 16:22:49.297" endtime="20230609 16:22:49.297"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230609 16:22:49.298" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230609 16:22:49.298" endtime="20230609 16:22:51.107"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://127.0.0.1:7000/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230609 16:22:51.108" level="INFO">Opening url 'http://127.0.0.1:7000/'</msg>
+<status status="PASS" starttime="20230609 16:22:51.107" endtime="20230609 16:22:52.024"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>974</arg>
+<arg>1040</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230609 16:22:52.024" endtime="20230609 16:22:52.128"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>link=Sign in</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230609 16:22:52.129" endtime="20230609 16:22:52.143"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>link=Sign in</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:52.144" level="INFO">Clicking element 'link=Sign in'.</msg>
+<status status="PASS" starttime="20230609 16:22:52.143" endtime="20230609 16:22:52.202"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>id=sign-in__email</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230609 16:22:52.203" endtime="20230609 16:22:52.213"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=sign-in__email</arg>
+<arg>ano4824avr@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:52.213" level="INFO">Typing text 'ano4824avr@gmail.com' into text field 'id=sign-in__email'.</msg>
+<status status="PASS" starttime="20230609 16:22:52.213" endtime="20230609 16:22:52.303"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>id=sign-in__password</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230609 16:22:52.304" endtime="20230609 16:22:52.315"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=sign-in__password</arg>
+<arg>password1234</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:52.315" level="INFO">Typing password into text field 'id=sign-in__password'.</msg>
+<msg timestamp="20230609 16:22:52.345" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230609 16:22:52.389" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230609 16:22:52.315" endtime="20230609 16:22:52.389"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>css=.form__button</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230609 16:22:52.389" endtime="20230609 16:22:52.399"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.form__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:52.400" level="INFO">Clicking element 'css=.form__button'.</msg>
+<status status="PASS" starttime="20230609 16:22:52.399" endtime="20230609 16:22:52.520"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>link=New post</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230609 16:22:52.520" endtime="20230609 16:22:52.536"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>link=New post</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:52.537" level="INFO">Clicking element 'link=New post'.</msg>
+<status status="PASS" starttime="20230609 16:22:52.536" endtime="20230609 16:22:52.618"/>
+</kw>
+<status status="PASS" starttime="20230609 16:22:49.296" endtime="20230609 16:22:52.618"/>
+</test>
+<test id="s1-t5" name="Successful Registration" line="88">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230609 16:22:52.620" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000022772A5C310&gt;</msg>
+<status status="PASS" starttime="20230609 16:22:52.620" endtime="20230609 16:22:52.620"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230609 16:22:52.620" endtime="20230609 16:22:52.620"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230609 16:22:52.621" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230609 16:22:52.621" endtime="20230609 16:22:55.033"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://127.0.0.1:7000/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230609 16:22:55.034" level="INFO">Opening url 'http://127.0.0.1:7000/'</msg>
+<status status="PASS" starttime="20230609 16:22:55.034" endtime="20230609 16:22:55.451"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>974</arg>
+<arg>1040</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230609 16:22:55.452" endtime="20230609 16:22:55.558"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.hero__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:55.559" level="INFO">Clicking element 'css=.hero__button'.</msg>
+<status status="PASS" starttime="20230609 16:22:55.559" endtime="20230609 16:22:55.619"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=sign-up__first-name</arg>
+<arg>Andrei</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:55.620" level="INFO">Typing text 'Nikita' into text field 'id=sign-up__first-name'.</msg>
+<status status="PASS" starttime="20230609 16:22:55.619" endtime="20230609 16:22:55.693"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=sign-up__last-name</arg>
+<arg>Psarev</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:55.694" level="INFO">Typing text 'Avram' into text field 'id=sign-up__last-name'.</msg>
+<status status="PASS" starttime="20230609 16:22:55.694" endtime="20230609 16:22:55.753"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=sign-up__email</arg>
+<arg>ano4824avr@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:55.754" level="INFO">Typing text 'ano4824avr@gmail.com' into text field 'id=sign-up__email'.</msg>
+<status status="PASS" starttime="20230609 16:22:55.753" endtime="20230609 16:22:55.820"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=sign-up__password</arg>
+<arg>password1234</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:55.821" level="INFO">Typing password into text field 'id=sign-up__password'.</msg>
+<msg timestamp="20230609 16:22:55.849" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230609 16:22:55.885" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230609 16:22:55.820" endtime="20230609 16:22:55.885"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=sign-up__confirm-password</arg>
+<arg>password1234</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:55.886" level="INFO">Typing password into text field 'id=sign-up__confirm-password'.</msg>
+<msg timestamp="20230609 16:22:55.913" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230609 16:22:55.945" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230609 16:22:55.885" endtime="20230609 16:22:55.945"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.form__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:55.945" level="INFO">Clicking element 'css=.form__button'.</msg>
+<status status="PASS" starttime="20230609 16:22:55.945" endtime="20230609 16:22:56.144"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.alert__button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:22:56.145" level="INFO">Clicking element 'css=.alert__button'.</msg>
+<status status="PASS" starttime="20230609 16:22:56.145" endtime="20230609 16:22:56.182"/>
+</kw>
+<status status="PASS" starttime="20230609 16:22:52.619" endtime="20230609 16:22:56.182"/>
+</test>
+<status status="PASS" starttime="20230609 16:22:32.507" endtime="20230609 16:22:56.184"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="File">File</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
