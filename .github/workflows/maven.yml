@@ -23,4 +23,7 @@ jobs:
       run: mvn clean install
     - name: Run Tests
       run: mvn test
+    - name: Запуск тестов Robot Framework
+      run: robot keyword_testing/src/test/java/robotframework/acceptance/file.robot
+
    
